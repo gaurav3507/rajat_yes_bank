@@ -53,4 +53,4 @@ def extract(imname,profile_img):
     else:
         return 2
 
-extract("rajat2.JPG","rajat2.JPG")
+# extract("rajat2.JPG","rajat2.JPG")
