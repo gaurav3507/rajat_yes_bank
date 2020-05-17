@@ -2,19 +2,27 @@ import face_recognition
 import cv2
 def extract(imname,profile_img):
 	## New Code for resize 
-    img = cv2.imread(imname)
-    res= cv2.resize(img,(300,300),interpolation = cv2.INTER_NEAREST)
-    cv2.imwrite(imname,res)
-    ##
-
+    
     image = face_recognition.load_image_file(imname)
     face_locations = face_recognition.face_locations(image)
-    # print(face_locations)
+    
     i=0
-    # x,y,w,h
+   
     found =0
+
+    if not face_locations:
+        img = cv2.imread(imname)
+        res= cv2.resize(img,(300,300),interpolation = cv2.INTER_NEAREST)
+        cv2.imwrite(imname ,res)
+        image = face_recognition.load_image_file(imname)
+        face_locations = face_recognition.face_locations(image)
+
+    # print("face locations",face_locations)
+
     if len(face_locations) > 0:
+
         for(top, right, bottom, left) in face_locations:
+            print("face found")
             # print(top,right,bottom,left)
             # i=i+1
             # name = "final/"
@@ -45,4 +53,4 @@ def extract(imname,profile_img):
     else:
         return 2
 
-# extract("group2.jpeg")
+extract("rajat2.JPG","rajat2.JPG")
