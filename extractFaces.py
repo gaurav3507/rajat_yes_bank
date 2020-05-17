@@ -2,7 +2,7 @@ import face_recognition
 import cv2
 def extract(imname,profile_img):
 	## New Code for resize 
-    
+    #change
     image = face_recognition.load_image_file(imname)
     face_locations = face_recognition.face_locations(image)
     
@@ -17,7 +17,7 @@ def extract(imname,profile_img):
         image = face_recognition.load_image_file(imname)
         face_locations = face_recognition.face_locations(image)
 
-    # print("face locations",face_locations)
+    print("face locations",face_locations)
 
     if len(face_locations) > 0:
 
@@ -53,4 +53,4 @@ def extract(imname,profile_img):
     else:
         return 2
 
-extract("rajat1.JPG","rajat1.JPG")
+extract("rajat_mask.JPG","rajat1.JPG")
